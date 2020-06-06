@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+
+  .scroll {
+    height: 500px;
+    overflow: auto;
+  }
+
+  .scroll button {
+  background-color: #39a451;
+}
+
+.scroll button mat-icon {
+  color: white;
+}
+
+.bd-example-modal-lg {
+  z-index: 6;
+}

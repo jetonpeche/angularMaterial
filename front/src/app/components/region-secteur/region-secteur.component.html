@@ -1,0 +1,55 @@
+<!-- selection du secteur -->
+<div class="container-fluid">
+    <h4>Administration des regions et secteurs</h4>
+
+    <!-- choix du secteur -->
+    <form #e="ngForm" (ngSubmit)="onListeRegionDuSecteur(e)">
+        <mat-form-field>
+            <mat-label>Secteur selectionné</mat-label>
+            <mat-select name="idSecteur" ngModel required>
+                <mat-option>-</mat-option>
+                <mat-option *ngFor="let ligne of listeSecteur" [value]="ligne.id_secteur">
+                    {{ ligne.lib_secteur }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>&nbsp;
+
+        <button mat-raised-button type="submit" [disabled]="e.invalid" color="primary">Valider</button>
+    </form>
+</div>
+
+<div class="row">
+
+    <!-- liste des regions qui ne sont pas dans le secteur choisi -->
+    <div class="scroll example-container col-md-4 col-sm-4">
+        <h2>Regions</h2>
+        <div
+            cdkDropList
+            #RegionList="cdkDropList"
+            [cdkDropListData]="listeRegion"
+            [cdkDropListConnectedTo]="[SecteurList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of listeRegion" [cdkDragData]="item" cdkDrag>
+                {{item.nom_region}}
+            </div>
+        </div>
+    </div>
+
+    <!-- liste des regions du secteur -->
+    <div class="example-container col-md-4 col-sm-4">
+        <h2>liste Regions dans le secteur: {{ secteurChoisi }}</h2>
+
+        <div
+            cdkDropList
+            #SecteurList="cdkDropList"
+            [cdkDropListData]="listeUnSecteurRegion"
+            [cdkDropListConnectedTo]="[RegionList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of listeUnSecteurRegion" [cdkDragData]="item" cdkDrag>
+                {{item.nom_region}}
+            </div>
+        </div>
+    </div>
+</div>
