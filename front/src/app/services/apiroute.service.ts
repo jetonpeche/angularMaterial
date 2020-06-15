@@ -13,6 +13,6 @@ export class APIrouteService {
 
   Envoie(info): Observable<any>
   {
-    return this.http.post<any>(this.API_route + "/test.php", info);
+    return this.http.post<any>(this.API_route + "upload/upload.php", info);
   }
 }
