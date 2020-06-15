@@ -32,12 +32,14 @@ import { APIrouteService } from './services/apiroute.service';
 import { VisiteurService } from './services/visiteur.service';
 import { RegionSecteurComponent } from './components/region-secteur/region-secteur.component';
 import { GeographieService } from './services/geographie.service';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    RegionSecteurComponent
+    RegionSecteurComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<h1>Upload</h1>
+<br />
+
+<form #e="ngForm" enctype="multipart/form-data">
+    <input #imageInput type="file" name="fichier" (change)="selectionImage(imageInput)" ngModel />
+    <br />
+
+    <button (click)="onUpload()">Valider</button>
+</form>
